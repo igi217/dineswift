@@ -1,0 +1,43 @@
+diff --git a/node_modules/immediate/lib/messageChannel.js b/node_modules/immediate/lib/messageChannel.js
+index a6ce360..bd94155 100644
+--- a/node_modules/immediate/lib/messageChannel.js
++++ b/node_modules/immediate/lib/messageChannel.js
+@@ -1,5 +1,5 @@
+ 'use strict';
+-
++const global = window;
+ exports.test = function () {
+   if (global.setImmediate) {
+     // we can only get here in IE10
+diff --git a/node_modules/immediate/lib/mutation.js b/node_modules/immediate/lib/mutation.js
+index f159741..791759f 100644
+--- a/node_modules/immediate/lib/mutation.js
++++ b/node_modules/immediate/lib/mutation.js
+@@ -1,4 +1,6 @@
+ 'use strict';
++
++const global = window;
+ //based off rsvp https://github.com/tildeio/rsvp.js
+ //license https://github.com/tildeio/rsvp.js/blob/master/LICENSE
+ //https://github.com/tildeio/rsvp.js/blob/master/lib/rsvp/asap.js
+diff --git a/node_modules/immediate/lib/queueMicrotask.js b/node_modules/immediate/lib/queueMicrotask.js
+index 43f63ac..4a48321 100644
+--- a/node_modules/immediate/lib/queueMicrotask.js
++++ b/node_modules/immediate/lib/queueMicrotask.js
+@@ -1,4 +1,5 @@
+ 'use strict';
++const global = window;
+ exports.test = function () {
+   return typeof global.queueMicrotask === 'function';
+ };
+diff --git a/node_modules/immediate/lib/stateChange.js b/node_modules/immediate/lib/stateChange.js
+index 5b2316d..adac874 100644
+--- a/node_modules/immediate/lib/stateChange.js
++++ b/node_modules/immediate/lib/stateChange.js
+@@ -1,5 +1,5 @@
+ 'use strict';
+-
++const global = window;
+ exports.test = function () {
+   return 'document' in global && 'onreadystatechange' in global.document.createElement('script');
+ };

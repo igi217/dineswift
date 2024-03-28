@@ -1,0 +1,452 @@
+@import url(./assets/fontawesome/css/all.css);
+
+@font-face {
+  font-family: "Adobe Clean";
+  src: url("./assets/fonts/AdobeClean-Bold.woff2") format("woff2"),
+    url("./assets/fonts/AdobeClean-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Adobe Clean";
+  src: url("./assets/fonts/AdobeClean-Black.woff2") format("woff2"),
+    url("./assets/fonts/AdobeClean-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Adobe Clean";
+  src: url("./assets/fonts/AdobeClean-ExtraBold.woff2") format("woff2"),
+    url("./assets/fonts/AdobeClean-ExtraBold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Adobe Clean";
+  src: url("./assets/fonts/AdobeClean-Light.woff2") format("woff2"),
+    url("./assets/fonts/AdobeClean-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Adobe Clean";
+  src: url("./assets/fonts/AdobeClean-Regular.woff2") format("woff2"),
+    url("./assets/fonts/AdobeClean-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Adobe Clean";
+  src: url("./assets/fonts/AdobeClean-SemiLight.woff2") format("woff2"),
+    url("./assets/fonts/AdobeClean-SemiLight.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar *::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar * {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 200.17 100% 44.9%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 0 0% 84.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.75rem;
+    --font-base: 15px;
+    font-size: var(--font-base);
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 200.17 100% 44.9%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    overflow-x: hidden;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body,
+#root {
+  width: 100%;
+  height: 100vh;
+
+  color: rgb(0 0 0 / 80%);
+  font-family: "Adobe Clean", sans-serif;
+  font-size: var(--font-base);
+}
+
+.macos-title {
+  width: 100%;
+  height: 30px;
+  background-color: #212121;
+  display: flex;
+  flex-direction: row;
+  padding-inline: 0.5rem;
+  align-items: center;
+  position: relative;
+}
+
+.macos-tool {
+  position: absolute;
+  left: 0.5rem;
+}
+
+.macos-tool span {
+  height: 10px;
+  width: 10px;
+  display: inline-flex;
+  margin-inline: 0.2rem;
+  border-radius: 50%;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.macos-tool span.disabled {
+  background-color: #bababa;
+  pointer-events: none;
+}
+
+.macos-tool .close {
+  background-color: red;
+}
+
+.macos-tool .minimize {
+  background-color: rgb(var(--color-warning));
+}
+
+.macos-tool .fullscreen {
+  background-color: rgb(1, 178, 1);
+}
+
+.title-wrap {
+  color: white;
+  margin: auto;
+  font-size: 11px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.title-wrap span {
+  letter-spacing: 1px;
+}
+
+.title-wrap img {
+  height: 12px;
+  width: 12px;
+  margin-right: 0.3rem;
+}
+
+.windows-title {
+  width: 100%;
+  height: 35px;
+  background-color: #212121;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+}
+
+.windows-title .title-wrap {
+  margin-right: auto;
+  margin-left: 0;
+  padding-inline: 0.5rem;
+}
+
+.windows-tool {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.windows-tool span {
+  height: 100%;
+  width: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 11px;
+  transition: 0.2s;
+}
+
+.windows-tool span:hover {
+  background-color: rgb(255 255 255/10%);
+}
+
+.windows-tool span.close:hover {
+  background-color: crimson;
+}
+
+.selected {
+  position: relative;
+}
+
+.selected::after {
+  content: "\f00c";
+  font-family: "Font awesome 6 pro";
+  background-color: rgb(76 129 241 / 1);
+  font-weight: 700;
+  color: white;
+  border-radius: 50%;
+  font-size: 8px;
+  height: 15px;
+  width: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -3px;
+  left: -3px;
+}
+
+.card.selected::after {
+  height: 18px;
+  width: 18px;
+  top: -7px;
+  left: -6px;
+}
+
+.card-wrapper .card-main {
+  transition: 0.3s;
+}
+
+.card-wrapper:focus .card-main {
+  transform: translateX(-50%);
+}
+
+span[contenteditable="true"] {
+  height: 100%;
+  width: 100%;
+  border: 1px dashed rgba(0, 0, 0, 0.1);
+  display: block;
+  outline: 0;
+}
+.nav {
+  background: none;
+  width: fit-content;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.nav svg {
+  fill: none;
+  stroke: #0b2948;
+  stroke-width: 7px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  width: 37px;
+}
+.nav svg use:nth-of-type(1) {
+  opacity: 1;
+  stroke-dashoffset: 221;
+  stroke-dasharray: 46 249;
+  transition: stroke-dashoffset 0.12s linear 0.2s,
+    stroke-dasharray 0.12s linear 0.2s, opacity 0s linear 0.2s;
+}
+.nav svg use:nth-of-type(2) {
+  -webkit-animation: stroke-animation-reverse 1.2s ease-out forwards;
+  animation: stroke-animation-reverse 1.2s ease-out forwards;
+}
+.nav input {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+  cursor: pointer;
+  opacity: 0;
+}
+.nav input:checked + svg use:nth-of-type(1) {
+  stroke-dashoffset: 175;
+  stroke-dasharray: 0 295;
+  opacity: 0;
+  transition: stroke-dashoffset 0.07s linear 0.07s,
+    stroke-dasharray 0.07s linear 0.07s, opacity 0s linear 0.14s;
+}
+.nav input:checked + svg use:nth-of-type(2) {
+  -webkit-animation: stroke-animation 1.2s ease-out forwards;
+  animation: stroke-animation 1.2s ease-out forwards;
+}
+
+@-webkit-keyframes stroke-animation {
+  0% {
+    stroke-dashoffset: 295;
+    stroke-dasharray: 25 270;
+  }
+  50% {
+    stroke-dashoffset: 68;
+    stroke-dasharray: 59 236;
+  }
+  65% {
+    stroke-dashoffset: 59;
+    stroke-dasharray: 59 236;
+  }
+  100% {
+    stroke-dashoffset: 68;
+    stroke-dasharray: 59 236;
+  }
+}
+
+@keyframes stroke-animation {
+  0% {
+    stroke-dashoffset: 295;
+    stroke-dasharray: 25 270;
+  }
+  50% {
+    stroke-dashoffset: 68;
+    stroke-dasharray: 59 236;
+  }
+  65% {
+    stroke-dashoffset: 59;
+    stroke-dasharray: 59 236;
+  }
+  100% {
+    stroke-dashoffset: 68;
+    stroke-dasharray: 59 236;
+  }
+}
+@-webkit-keyframes stroke-animation-reverse {
+  0% {
+    stroke-dashoffset: 68;
+    stroke-dasharray: 59 236;
+  }
+  50% {
+    stroke-dashoffset: 290;
+    stroke-dasharray: 25 270;
+  }
+  65% {
+    stroke-dashoffset: 295;
+    stroke-dasharray: 25 270;
+  }
+  100% {
+    stroke-dashoffset: 290;
+    stroke-dasharray: 25 270;
+  }
+}
+@keyframes stroke-animation-reverse {
+  0% {
+    stroke-dashoffset: 68;
+    stroke-dasharray: 59 236;
+  }
+  50% {
+    stroke-dashoffset: 290;
+    stroke-dasharray: 25 270;
+  }
+  65% {
+    stroke-dashoffset: 295;
+    stroke-dasharray: 25 270;
+  }
+  100% {
+    stroke-dashoffset: 290;
+    stroke-dasharray: 25 270;
+  }
+}
+body {
+  background: #1b1a23;
+  height: 100vh;
+  font: 400 16px "Varela Round", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body .socials {
+  position: fixed;
+  display: block;
+  left: 20px;
+  bottom: 20px;
+}
+body .socials > a {
+  display: block;
+  width: 30px;
+  opacity: 0.2;
+  transform: scale(var(--scale, 0.8));
+  transition: transform 0.3s cubic-bezier(0.38, -0.12, 0.24, 1.91);
+}
+body .socials > a:hover {
+  --scale: 1;
+}
+.css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected{
+  color: #6366f1 !important;
+}
+.PopoverContent {
+  width: var(--radix-popover-trigger-width);
+  max-height: var(--radix-popover-content-available-height);
+}
+.css-11yukd5-MuiTabs-indicator{
+  background-color: #6366f1 !important;
+  height: 3px !important;
+  bottom: -3px;
+}

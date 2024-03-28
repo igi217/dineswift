@@ -1,0 +1,13 @@
+diff --git a/node_modules/tauri-plugin-printer/dist/lib/index.js b/node_modules/tauri-plugin-printer/dist/lib/index.js
+index 1809950..76fe9b8 100644
+--- a/node_modules/tauri-plugin-printer/dist/lib/index.js
++++ b/node_modules/tauri-plugin-printer/dist/lib/index.js
+@@ -186,7 +186,7 @@ const print = async (data, options) => {
+                     const trBody = document.createElement('tr');
+                     for (const td of tr) {
+                         const tdBody = document.createElement('td');
+-                        tdBody.innerText = td.toString();
++                        tdBody.innerHTML = td.toString();
+                         trBody.appendChild(tdBody);
+                     }
+                     tableBody.appendChild(trBody);

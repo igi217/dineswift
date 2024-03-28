@@ -1,0 +1,81 @@
+{
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build",
+    "devPath": "http://localhost:5173",
+    "distDir": "../dist",
+    "withGlobalTauri": true
+  },
+  "package": {
+    "productName": "Dineswift",
+    "version": "0.0.1"
+  },
+  "tauri": {
+    "allowlist": {
+      "all": true,
+      "fs": {
+        "all": true,
+        "scope": [
+          "**"
+        ]
+      },
+      "protocol": {
+        "asset": true,
+        "assetScope": [
+          "**"
+        ]
+      },
+      "path": {
+        "all": true
+      }
+    },
+    "bundle": {
+      "active": true,
+      "targets": "all",
+      "identifier": "com.dineswift.app",
+      "icon": [
+        "icons/32x32.png",
+        "icons/128x128.png",
+        "icons/128x128@2x.png",
+        "icons/icon.icns",
+        "icons/icon.ico"
+      ],
+      "resources": [
+        "./downloads/category.csv"
+      ]
+    },
+    "security": {
+      "csp": null
+    },
+    "windows": [
+      {
+        "fullscreen": false,
+        "resizable": false,
+        "title": "Dineswift",
+        "width": 700,
+        "height": 500,
+        "decorations": false,
+        "label": "splash",
+        "url": "splash.html",
+        "center": true,
+        "visible": false,
+        "alwaysOnTop": true,
+        "transparent":true
+      },
+      {
+        "fullscreen": false,
+        "resizable": true,
+        "title": "DINESWIFT",
+        "width": 1080,
+        "height": 800,
+        "minWidth": 600,
+        "minHeight": 400,
+        "decorations": false,
+        "visible": false,
+        "transparent": true,
+        "center": true,
+        "alwaysOnTop": true
+      }
+    ]
+  }
+}

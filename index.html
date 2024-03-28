@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dineswift</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="/scripts/pouchdb.min.js"></script>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      document.body.addEventListener('contextmenu', (e) => {
+        e.preventDefault()
+      })
+  
+      document.body.addEventListener('keydown', (e) => {
+        if (e.key == "r" && e.ctrlKey) {
+          e.preventDefault()
+        }
+      })
+    </script>
+  </body>
+</html>
